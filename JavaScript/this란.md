@@ -77,9 +77,14 @@ const testCar = {
     getName: function () {
         console.log(this.name); // benz
         const innerFunc = function () {
-            console.log(this.name); //
+            console.log(this.name); //undefined
+        };
+        // 화살표 함수에서의this는 함수가 속해있는곳의 상위 this를 계승 받는다.
+        const innerFunc2 = () => {
+            console.log(this.name); //benz
         };
         innerFunc();
+        innerFunc2();
     },
 };
 testCar.getName();
@@ -89,4 +94,6 @@ testCar.getName();
 
 # 참조
 
-> https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this > https://hanamon.kr/javascript-this%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C/
+> https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/this  
+> https://hanamon.kr/javascript-this%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C/  
+> https://www.youtube.com/watch?v=tDZROpAdJ9w&t=449s
